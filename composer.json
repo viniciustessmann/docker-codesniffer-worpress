@@ -1,0 +1,33 @@
+{
+    "name": "tessmann/wp-cs-fixer",
+    "autoload": {
+        "psr-4": {
+            "Tessmann\\WpCsFixer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vinícius Tessmann",
+            "email": "vinicius.tessmann@melhorenvio.com"
+        }
+    ],
+    "require": {
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs"
+        ],
+        "post-update-cmd": [
+            "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs"
+        ]
+    }
+}
